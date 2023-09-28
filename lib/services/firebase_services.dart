@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:push_notification_app/models/user.dart';
 import 'package:push_notification_app/screens/home_screen.dart';
 import 'package:push_notification_app/screens/signup_screen.dart';
-
+ 
 class FirebaseHelper {
-  const FirebaseHelper._();
+  const FirebaseHelper.__();
 
   static final FirebaseAuth auth = FirebaseAuth.instance;
   static final FirebaseFirestore db = FirebaseFirestore.instance;
