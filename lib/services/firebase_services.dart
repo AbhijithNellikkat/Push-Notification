@@ -1,9 +1,11 @@
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:push_notification_app/models/user.dart';
+import 'package:push_notification_app/screens/home_screen.dart';
+import 'package:push_notification_app/screens/signup_screen.dart';
 
 class FirebaseHelper {
   const FirebaseHelper._();
@@ -56,4 +58,12 @@ class FirebaseHelper {
 
   static Stream<QuerySnapshot<Map<String, dynamic>>> get buildViews =>
       db.collection("users").snapshots();
+
+  static Widget get homeScreen {
+    if (auth.currentUser != null) {
+      return const HomeScreen();
+    }
+
+    return const SignUpScreen();
+  }
 }
